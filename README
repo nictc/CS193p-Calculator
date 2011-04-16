@@ -1,0 +1,30 @@
+This is The Calculator from
+CS193p Fall 2010
+
+Assignment 1A (Homework)
+
+Complete:
+
+1. Follow the walk-through instructions (separate document) to build and run the calculator in the iPhone Simulator. Do not proceed to the next steps unless your calculator builds without warnings or errors and functions as expected.2. Your calculator already works with floating point numbers (e.g. if you press 3 / 4 = it will properly show the resulting value of 0.75), however, there is no way for the user to enter a floating point number. Remedy this. Allow only legal floating point numbers to be entered (e.g. “192.168.0.1” is not a legal floating point number).3. Add the following four single-operand operators:•	1/x : inverts the number in the display (i.e. 4 becomes .25). Be sure to handle the case where the display currently contains a zero. You can fail silently, but don’t crash.•	+/-: changes the sign of the number in the display. •	sin : calculates the sine of the number in the display. •	cos : calculates the cosine of the number in the display.4. Add the following three “memory” buttons: •	Store : stores the current value of the display into a memory location. This buttonshould not change the number that is in the display.•	Recall : recalls the value in memory.•	Mem + : adds the current value of the display to whatever’s already in memory. This button should not change the number that is in the display.5. Add a “C” button that clears everything (the display, any “waiting” operations, and the memory).6. Avoiding the problems listed in the Evaluation section below is part of the required tasks of every assignment. This list grows as the quarter progresses, so be sure to check it again with each assignment.
+
+Assignment 1B (Homework)
+not Ready yet
+
+Things are done already:
+1. Make your calculator more user-friendly by putting a warning message somewhere when divide by zero or square root of a negative number happens. You could be very aggressive here and try to figure out how to use UIAlertView, or, more appropriate for this point in the class, just add another UILabel to your UI.
+ - Done with UIAlert
+
+2. Add a UILabel somewhere in the user-interface which shows the contents of the CalculatorBrain’s memory.	This will require the CalculatorBrain to “export” this information to your Controller via the CalculatorBrain’s API (i.e. a new method in its header file, CalculatorBrain.h).
+- complete number 2 must be done… 
+
+3. Note that we have not asked you to implement a “clear memory (only)” button. This would be straightforward in your CalculatorBrain (it’s just yet another single- operand operation), but it’s a bit more of a challenge to your CalculatorViewController than the other memory operations are. Why is that? Hint: Clearing memory should have no effect on anything else the user is doing in the calculator at the time.
+ - Done -
+4. Implement a “backspace” button for the user to press if they hit the wrong digit button. This is not intended to be “undo,” so if they hit the wrong operation button, they are out of luck!
+ -have to be done yet
+5. Add a π button.
+ - no place for that
+6. Implement a user-interface for choosing whether the operand to sin() or cos() is considered radians or degrees.	When you call sin(x) in the C library, x is assumed to be in radians (i.e. 0 to 2π goes around the circle once), but users might want to enter 180 and press the sin button and get 0 instead of -0.8012 (which is the sine of 180 radians).	You could use a UIButton for this and switch out the titleLabel’s text each time the UIButton is pressed, but a better way would be to see if you can figure out how to use a UISwitch by reading the documentation (if you dare!).
+ - Done as UIButton without SwitchUI
+7. Add a UILabel somewhere in your user-interface which shows the state of a 2- operand operation in progress. For example, if the user hit the following buttons 3 + 4 * 5 = this extra field would show nothing until the +, at which point it would display 3 + then it would change to 7 * as soon as the * button was pressed. Like Extra Credit #2 above, you will need to augment your CalculatorBrain’s public API to share information about whether there is a 2-operand operation pending or not since that is currently private implementation in the CalculatorBrain. A cool place to put this UILabel is above the display and left-aligned.
+ - must be done
+
