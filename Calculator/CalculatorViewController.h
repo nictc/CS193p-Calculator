@@ -13,9 +13,15 @@
     CalculatorBrain *brain;
     BOOL userIsInTheMiddleOfTypingANumber;
     IBOutlet UILabel *memDisplay; //our stored memory display window upper left corner
+    IBOutlet UILabel *operandDisplay;//additional operationDisplay
+    UIButton *mr;
  
 }
-
+@property (retain,nonatomic) UILabel *memDisplay;
+@property (retain,nonatomic) UILabel *operandDisplay;
+@property double tempStore;
+@property double waitingOperand;
+//@property(nonatomic) NSString* operation;
 - (IBAction)digitPressed:(UIButton *)sender;
 - (IBAction)operationPressed:(UIButton *)sender;
 

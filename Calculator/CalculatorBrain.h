@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AudioToolbox/AudioToolbox.h>
 
 
 @interface CalculatorBrain : NSObject {
@@ -16,6 +15,9 @@
     NSString *waitingOperation;
     double waitingOperand;
 }
+//@property(nonatomic, retain) NSString* operation;
+@property(nonatomic) double tempStore;
+@property(nonatomic) double waitingOperand;
 - (void)setOperand: (double) anOperand;
 - (double)perfomOperation:(NSString *)operation; 
 

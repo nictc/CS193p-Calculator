@@ -7,10 +7,13 @@
 //
 
 #import "CalculatorBrain.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 
 @implementation CalculatorBrain
-
+@synthesize tempStore;
+@synthesize waitingOperand;
+//@synthesize operation;
 - (void)setOperand: (double) anOperand
 {
     operand = anOperand;
@@ -32,7 +35,8 @@
         if (operand == 0) {UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fehler" message:@"Division durch null" delegate:self cancelButtonTitle:nil otherButtonTitles:@"zurück", nil];
             [alert show];
             [alert release];  
-        } 
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+                    } 
         } 
     }
     
@@ -46,7 +50,13 @@
             operand = - operand;
         }
         else if ([@"1/x" isEqual:operation]){
-            if (operand == 0){printf("error\n");            } 
+            if (operand == 0){UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fehler" message:@"Division durch null" delegate:self cancelButtonTitle:nil otherButtonTitles:@"zurück", nil];
+                [alert show];
+                [alert release];  
+                AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    
+            } 
+
             else
             operand = 1/ operand;
         }
